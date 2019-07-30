@@ -1,0 +1,54 @@
+set nocompatible
+syntax enable
+filetype indent plugin on
+set encoding=utf-8
+set spelllang=en_uk
+set filetype 
+"should show current file type?
+set visualbell
+"set t_vb=       this will make is so there is no visual bell or beep
+set confirm 
+"won't fail a command because of unsaved changes, raise a dialog to ask to save
+set laststatus=2
+" always display status line
+set autoindent
+set backspace=indent,eol,start 
+set ignorecase
+set smartcase
+"last two: case insenstive search except when using captial letters
+set mouse=a 
+"use mouse for all modes
+set number
+"set wildmenu  set showcmd #better command line completion, shows partial at 
+"the bottom of the screen.
+set hlsearch
+"highlights search
+:inoremap jk <ESC>`^
+":vnoremap.:norm.<CR>
+"apply commands to visual mode? command -> v5w. (apply command to next 5 words)
+set cmdheight=2
+
+call plug#begin('~/.vim')
+                                                                        
+Plug '~/.vim/vimtex'
+
+Plug 'SirVer/ultisnips'    
+
+call plug#end()
+
+let g:tex_flavor='latex'
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+let g:vimtex_latexmk_options="-pdf -pdflatex='pdflatex -file-line-error -shell-escape -synctex=1'"
+let g:vimtex_fold_enabled = 0
+"is 0 for Castel's settings
+let g:vimtex_quickfix_mode = 2 
+let g:vimtex_quickfix_open_on_warning = 1
+let g:vimtex_toc_resize = 0
+let g:vimtex_toc_hide_help = 1
+let g:vimtex_indent_enabled = 1
+let g:vimtex_latexmk_enabled = 1
+let g:vimtex_latexmk_callback = 1
+let g:vimtex_complete_recursive_bib = 0
+let g:vimtex_view_method = 'zathura'
